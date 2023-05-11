@@ -1,7 +1,9 @@
+from Globals import number_of_tasks, paused, new_timer, time_left, current_category, current_task, upper_step
+from Globals import left_step, width_btn1, height_btn1, width_btn2, height_btn2, font_size, text_width
+from Globals import text_height, timer_width, timer_height, start_btn_width, window_size, categories, tasks
 from random import choice, randint
 import tkinter as tk
 from tkinter import scrolledtext
-import tkinter.simpledialog as sd
 
 
 # открываем новый файл для записи
@@ -10,28 +12,6 @@ with open('tasks.txt', 'w') as file:
     file.write("1 #%# Матан #%# Найти f'(2) для f(x) = x #%# 1$$$")
     file.write('2 #%# Матан #%# Разложите f(x) = sin(x) в ряд Маклорена до o(x) #%# sin(x) = x + o(x^2)$$$')
 
-
-number_of_tasks = 2
-paused = False
-new_timer = False
-time_left = None
-current_category = None
-current_task = None
-upper_step = 0.05
-left_step = 0.05
-width_btn1 = 0.40
-height_btn1 = 0.10
-width_btn2 = 0.60
-height_btn2 = 0.20
-font_size = 16
-text_width = 0.90
-text_height = 0.30
-timer_width = 0.45
-timer_height = 0.40
-start_btn_width=0.20
-window_size = "600x400"
-categories = []
-tasks = dict()
 
 with open("tasks.txt", "r") as f:
     text = f.read()
@@ -64,9 +44,9 @@ def new():
 def add_new_problem():
     global number_of_tasks
     # создаем диалоговое окно с полем ввода текста
-    category = sd.askstring("Enter text", "Тема задачи")
-    problem = sd.askstring("Enter text", "Текст задачи")
-    answer = sd.askstring("Enter text", "Ответ на задачу")
+    category = tk.simpledialog.askstring("Enter text", "Тема задачи")
+    problem = tk.simpledialog.askstring("Enter text", "Текст задачи")
+    answer = tk.simpledialog.askstring("Enter text", "Ответ на задачу")
 
     # если пользователь ввел текст, то выводим его в консоль
     if category is not None and problem is not None and answer is not None:
@@ -172,6 +152,6 @@ pause_resume_button.place(relx=left_step, rely=(height_btn2 + 2 * upper_step), r
 time_label = tk.Label(timer_frame, text="Time remaining: ", font=("Helvetica", font_size))
 time_label.place(relx=left_step, rely=(2 * height_btn2 + 3 * upper_step), relwidth=width_btn2, relheight=height_btn2)
 
-
-# Запускаем окно
-window.mainloop()
+def app():
+    # Запускаем окно
+    window.mainloop()

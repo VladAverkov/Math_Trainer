@@ -1,0 +1,22 @@
+number_of_tasks = 2
+paused = False
+new_timer = False
+time_left = None
+current_category = None
+current_task = None
+upper_step = 0.05
+left_step = 0.05
+width_btn1 = 0.40
+height_btn1 = 0.10
+width_btn2 = 0.60
+height_btn2 = 0.20
+font_size = 16
+text_width = 0.90
+text_height = 0.30
+timer_width = 0.45
+timer_height = 0.40
+start_btn_width=0.20
+window_size = "600x400"
+categories = []
+tasks = dict()
+
